@@ -8,13 +8,40 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var DiceImageView1: UIImageView!
+    
+    @IBOutlet weak var DiceImageView2: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
-}
+    // Choose a random index to select an image
+    //This a single line of code
+    @IBAction func rollButtonPress(_ sender: UIButton) {
+        
+        let diceImages = [
+            UIImage(named: "DiceTwo")!,
+            UIImage(named: "DiceFour")!,
+            UIImage(named: "DiceOne")!,
+            UIImage(named: "DiceThree")!,
+            UIImage(named: "DiceSix")!,
+            UIImage(named: "DiceFive")!
+        ]
+        let randomIndex = Int.random(in: 0..<diceImages.count)
+        let randomIndex2 = Int.random(in: 2..<diceImages.count)
 
+        DiceImageView1.image = diceImages[randomIndex]
+
+        
+        DiceImageView2.image = diceImages[randomIndex2]
+        
+        
+        
+    }
+}
